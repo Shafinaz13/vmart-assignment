@@ -1,0 +1,15 @@
+<!-- user_detail_edit.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit User Detail</title>
+</head>
+<body>
+    <h1>Edit User Detail</h1>
+    <form method="post" action="{% url 'edit' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Save Changes">
+    </form>
+</body>
+</html>

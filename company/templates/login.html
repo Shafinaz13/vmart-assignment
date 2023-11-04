@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="expires" content="0">
+
+    <title>Form</title>
+</head>
+<body>
+{% if 'incorrect_email' %}
+    <p>{{incorrect_email}}</p>
+{% endif %}
+{% if 'email_already_exists' %}
+    <p>{{email_already_exists}}</p>
+{% endif %}
+{% if 'invalid_user_pass' %}
+    <p>{{invalid_user_pass}}</p>
+{% endif %}
+
+{% if is_login %}
+    <form method="post" action="{% url 'details' %}">
+{% else %}
+    <form method="post" action="{% url 'login' %}">
+{% endif %}
+    {% csrf_token %}
+    {{ form.as_p }}
+    {% if is_login == True %}
+        <button type="submit">LogIn</button>
+    {% else %}
+        <button type="submit">SignUp</button>
+    {% endif %}
+    </form>
+</body>
+</html>

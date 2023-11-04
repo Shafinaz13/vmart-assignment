@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <title>Title</title>
+</head>
+<body>
+<h1>User Detail</h1>
+<p>Username: {{ user.user.username }}</p>
+<p>Email: {{ user.email }}</p>
+<p>Company: {{ user.company.name }}</p>
+<p>Position: {{ user.position }}</p>
+<p>phone_number: {{ user.phone_number }}</p>
+
+<a href="{% url 'edit' %}">Edit Info</a>
+<a href="{% url 'logout' %}"><button type="submit">Logout</button></a>
+</body>
+</html>
